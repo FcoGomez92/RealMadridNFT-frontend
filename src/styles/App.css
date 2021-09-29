@@ -1,0 +1,331 @@
+.App {
+  height: 100vh;
+  background-color: #fff;
+  overflow: scroll;
+  text-align: center;
+}
+
+.container {
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+}
+
+.header {
+  margin: 0;
+  font-size: 30px;
+}
+
+.sub-text {
+  font-size: 18px;
+  color: #084b94;
+  margin: 20px 0;
+}
+
+.gradient-text {
+  background: -webkit-linear-gradient(left, #60c657 30%, #35aee2 60%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cta-button {
+  height: 45px;
+  border: 0;
+  width: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 12px;
+  color: white;
+  font-family: "Press Start 2P", cursive;
+}
+
+.connect-wallet-button {
+  background: #fbbe2c;
+  border-radius: 3rem;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  transition: 0.2s transform ease-in-out;
+  will-change: transform;
+  z-index: 0;
+  color: #084b94;
+}
+.connect-wallet-button::after {
+  background-color: #084b94;
+  border-radius: 3rem;
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 10%;
+  top: 0;
+  transform: translate(-100%, 0) rotate(10deg);
+  transform: -origin top left;
+  transition: 0.2s transform ease-out;
+  will-change: transform;
+  z-index: -1;
+}
+.connect-wallet-button:hover {
+  color: #fff;
+  will-change: transform;
+}
+.connect-wallet-button:hover::after {
+  transform: translate(-10%, 0);
+}
+
+.mint-button {
+  background: -webkit-linear-gradient(left, #e42a48, #f39528);
+  background-size: 200% 200%;
+  animation: gradient-animation 4s ease infinite;
+  margin-bottom: 30px;
+}
+.mint-button:disabled {
+  background: -webkit-linear-gradient(left, #e42a496f, #f3942866);
+  cursor: not-allowed;
+}
+
+.opensea-button {
+  background-color: white;
+  border: solid 3px #2081e2;
+  font-family: "Roboto mono", cursive;
+  font-size: 16px;
+  width: fit-content;
+  padding: 10px 40px;
+  border-radius: 25px;
+  color: #2081e2;
+  font-weight: 500;
+  margin: 30px auto;
+  transition: 0.25s ease-in;
+}
+.opensea-button a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.opensea-button a svg {
+  margin-right: 10px;
+}
+.opensea-button:hover {
+  cursor: pointer;
+  background-color: #2081e2;
+  color: #fff;
+  transition: 0.25s ease-in;
+}
+.opensea-button:hover #path1,
+.opensea-button:hover #path2 {
+  fill: #2081e2;
+  transition: 0.25s ease-in;
+}
+.opensea-button #path1,
+.opensea-button #path2 {
+  fill: #fff;
+  transition: 0.25s ease-in;
+}
+
+.mint-count {
+  color: #042ba0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.footer-container {
+  display: flex;
+  margin-top: auto;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+  font-family: "Roboto Mono", monospace;
+}
+
+.twitter-logo {
+  width: 35px;
+  height: 35px;
+}
+
+.footer-text {
+  color: #042ba0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.examples-grid {
+  display: flex;
+  column-gap: 30px;
+  margin: 0 auto;
+  max-width: 850px;
+}
+.main-content {
+  margin-top: 60px;
+}
+.acc-info {
+  font-family: "Roboto Mono";
+  display: flex;
+  background: #fbbd2cba;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 12px;
+  color: rgb(63, 63, 63);
+}
+.acc {
+  padding: 10px;
+  background: #084c94de;
+  border-radius: 12px;
+  color: white;
+}
+.acc-balance {
+  padding: 10px;
+}
+.acc-err-on {
+  border: solid 4px #e42a48;
+  border-radius: 17px;
+  position: relative;
+}
+.acc-err-off {
+  border: solid 4px transparent;
+  border-radius: 17px;
+  position: relative;
+}
+.err-conection-p {
+  position: absolute;
+  top: 100;
+  margin-top: 5px;
+  font-family: "Roboto mono";
+  font-size: 14px;
+  color: #e42a48;
+}
+.action-div {
+  margin: 30px 0;
+}
+.col-data p {
+  color: #084b94;
+  margin: 30px;
+}
+.col-data p span {
+  color: #f39528;
+  font-size: 25px;
+}
+.status-div {
+  background: #084c9412;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+}
+.status-div p {
+  font-family: "Roboto mono";
+  margin-bottom: 20px;
+}
+.status-div span {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
+.status-div a {
+  font-family: "Roboto mono";
+}
+.status-div a:hover {
+  text-decoration: underline;
+}
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border-left-color: #09f;
+  margin: 0 auto 20px auto;
+
+  animation: spin 1s ease infinite;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.447);
+  backdrop-filter: blur(3px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+}
+.modal-content {
+  max-width: 400px;
+  /* height: 35vh; */
+  min-height: 340px;
+  background: #f0f0f0;
+  padding: 60px;
+  border-radius: 8px;
+  position: relative;
+  margin: 40px auto;
+}
+.close-modal {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.close-btn:hover {
+  color: #24c6dc;
+  font-weight: 500;
+  cursor: pointer;
+}
+.st-modal {
+  margin-top: 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* KeyFrames */
+@-webkit-keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
