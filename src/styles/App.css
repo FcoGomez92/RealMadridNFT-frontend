@@ -6,7 +6,7 @@
 }
 
 .container {
-  height: 100%;
+  height: calc(100% - 40px);
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -148,7 +148,6 @@
   margin-top: auto;
   justify-content: center;
   align-items: center;
-  padding-bottom: 30px;
   font-family: "Roboto Mono", monospace;
 }
 
@@ -266,7 +265,7 @@
   /* height: 35vh; */
   min-height: 340px;
   background: #f0f0f0;
-  padding: 60px;
+  padding: 30px;
   border-radius: 8px;
   position: relative;
   margin: 40px auto;

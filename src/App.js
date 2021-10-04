@@ -1,6 +1,6 @@
 import "./styles/App.css";
 import twitterLogo from "./assets/twitter-logo.svg";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { ethers } from "ethers";
 import myEpicNft from "./utils/MyEpicNFT.json";
 import Logo from "./utils/Logo.js";
@@ -26,6 +26,10 @@ const App = () => {
   const [status, setStatus] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [newNft, setNewNft] = useState({});
+  const myRef = useRef(null);
+
+  const executeScroll = () =>
+    myRef.current.scrollIntoView({ behavior: "smooth" });
 
   const checkIfWalletIsConnected = async () => {
     const { ethereum } = window;
@@ -115,6 +119,7 @@ const App = () => {
   };
 
   const askContractToMintNft = async () => {
+    await executeScroll();
     try {
       const { ethereum } = window;
 
@@ -133,6 +138,7 @@ const App = () => {
             message:
               "Wrong Network! Do you want to lose money?\n Please connect your wallet to Rinkeby Testnet.",
           });
+
           return;
         }
         setIsLoading(true);
@@ -140,6 +146,7 @@ const App = () => {
           type: "Init",
           message: "Going to pop wallet now to pay gas...",
         });
+
         let nftTxn = await connectedContract.makeAnEpicNFT();
 
         setStatus({
@@ -238,6 +245,7 @@ const App = () => {
 
   const renderMintUI = () => (
     <>
+      {status.message && executeScroll()}
       <button
         onClick={() => {
           askContractToMintNft();
@@ -350,7 +358,6 @@ const App = () => {
           </div>
           <div className="opensea-button">
             <a href={OPENSEA_LINK} target="_blank" rel="noreferrer">
-              {/* <img src={openseaLogo} alt="" /> */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
@@ -394,7 +401,7 @@ const App = () => {
               : renderMintUI()}
           </div>
         </main>
-        <div className="footer-container">
+        <div ref={myRef} className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
           <a
             className="footer-text"
