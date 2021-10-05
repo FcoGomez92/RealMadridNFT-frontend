@@ -44,6 +44,7 @@ const App = () => {
     const accounts = await ethereum.request({ method: "eth_accounts" });
 
     if (accounts.length !== 0) {
+      console.log(accounts);
       const account = accounts[0];
       console.log("Found an authorized account: ", account);
 
@@ -98,13 +99,16 @@ const App = () => {
           "NewEpicNFTMinted",
           (from, tokenId, playerName, playerNumber) => {
             console.log(from, tokenId.toNumber());
-            setNewNft({
-              playerName,
-              playerNumber,
-              message:
-                "Congrats! Here is how your NFT looks like!\n You can see it on OpenSea.io by following the link below.\n It may be blank right now, because It can take a max of 10 min to show up.",
-              link: `https://testnets.opensea.io/assets/${CONTRACT_ADDRESS}/${tokenId.toNumber()}`,
-            });
+
+            if (from.toLowerCase() === currentAccount) {
+              setNewNft({
+                playerName,
+                playerNumber,
+                message:
+                  "Congrats! Here is how your NFT looks like!\n You can see it on OpenSea.io by following the link below.\n It may be blank right now, because It can take a max of 10 min to show up.",
+                link: `https://testnets.opensea.io/assets/${CONTRACT_ADDRESS}/${tokenId.toNumber()}`,
+              });
+            }
             getNftsMinted();
           }
         );
